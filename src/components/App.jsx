@@ -9,7 +9,10 @@ export const App = () => {
   const [searchTerm, setSearchrTerm] = useState('');
 
   const searchMovies = async title => {
-    const res = await fetch(`${API_URL}&s=${title}`);
+    const res = await fetch(`${API_URL}&s=${title}`, {
+      method: 'GET',
+      mode: 'cors',
+    });
     const data = await res.json();
     setMovies(data.Search);
   };
