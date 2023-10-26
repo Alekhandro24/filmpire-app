@@ -1,16 +1,52 @@
+import './App.css';
+import { useEffect, useState } from 'react';
+import SearchIcon from '../images/icons/search.svg';
+import MovieCard from './MovieCard/MovieCard';
+import { API_URL } from '../constants/api';
+
 export const App = () => {
+  const [movies, setMovies] = useState([]);
+  const [searchTerm, setSearchrTerm] = useState('');
+
+  const searchMovies = async title => {
+    const res = await fetch(`${API_URL}&s=${title}`);
+    const data = await res.json();
+    setMovies(data.Search);
+  };
+
+  useEffect(() => {
+    searchMovies('Italy');
+  }, []);
+
   return (
-    <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        color: '#010101',
-      }}
-    >
-      React homework template & hello Alekhandro!
-    </div>
+    <section className="app">
+      <h1>MovieLand</h1>
+
+      <div className="search">
+        <input
+          type="text"
+          placeholder="Search for movie"
+          value={searchTerm}
+          onChange={e => setSearchrTerm(e.target.value)}
+        />
+        <img
+          src={SearchIcon}
+          alt="search icon"
+          onClick={() => searchMovies(searchTerm)}
+        />
+      </div>
+
+      {movies?.length > 0 ? (
+        <div className="container">
+          {movies.map(movie => (
+            <MovieCard movie={movie} key={movie.imdbID} />
+          ))}
+        </div>
+      ) : (
+        <div className="empty">
+          <h2>No movies found</h2>
+        </div>
+      )}
+    </section>
   );
 };
