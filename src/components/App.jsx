@@ -2,19 +2,15 @@ import './App.css';
 import { useEffect, useState } from 'react';
 import SearchIcon from '../images/icons/search.svg';
 import MovieCard from './MovieCard/MovieCard';
-import { API_URL } from '../constants/api';
+import api from '../services/api';
 
 export const App = () => {
   const [movies, setMovies] = useState([]);
   const [searchTerm, setSearchrTerm] = useState('');
 
   const searchMovies = async title => {
-    const res = await fetch(`${API_URL}&s=${title}`, {
-      method: 'GET',
-      mode: 'cors',
-    });
-    const data = await res.json();
-    setMovies(data.Search);
+    const res = await api.apiSearch(title);
+    setMovies(res);
   };
 
   useEffect(() => {
