@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/filmpire-app/static/css/main.334bdeb1.css",
-    "main.js": "/filmpire-app/static/js/main.ffbb69f7.js",
+    "main.js": "/filmpire-app/static/js/main.52a1ef2f.js",
     "index.html": "/filmpire-app/index.html",
     "static/media/search.svg": "/filmpire-app/static/media/search.981b582ea232c3cb047eca919deaf9e8.svg",
     "main.334bdeb1.css.map": "/filmpire-app/static/css/main.334bdeb1.css.map",
-    "main.ffbb69f7.js.map": "/filmpire-app/static/js/main.ffbb69f7.js.map"
+    "main.52a1ef2f.js.map": "/filmpire-app/static/js/main.52a1ef2f.js.map"
   },
   "entrypoints": [
     "static/css/main.334bdeb1.css",
-    "static/js/main.ffbb69f7.js"
+    "static/js/main.52a1ef2f.js"
   ]
 }
